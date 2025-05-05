@@ -133,12 +133,41 @@ new_actor ["name"] = "Maggie Gyllenhaal"
 new_actor.save
 p new_actor
 
+batman_begins = Movie.find_by("title" => "Batman Begins")
+the_dark_knight = Movie.find_by("title" => "The Dark Knight")
+the_dark_knight_rises = Movie.find_by("title" => "The Dark Knight Rises")
+CB = Actor.find_by("name" =>"Christian Bale")
+MC = Actor.find_by("name" =>"Michael Caine")
+LN = Actor.find_by("name" => "Liam Neeson")
+KH = Actor.find_by("name" => "Katie Holmes")
+GO = Actor.find_by("name" => "Gary Oldman")
+HL = Actor.find_by("name" => "Heath Ledger")
+AE = Actor.find_by("name" => "Aaron Eckhart")
+MG = Actor.find_by ("name" => "Maggie Gyllenhaal")
+
 new_role = Role.new
-new_role ["movie_id"] =  
+new_role ["movie_id"] = batman_begins 
 new_role ["actor_id"] = 
 new_role ["character_name"] = 
 new_role.save
 
+
+
+Batman Begins          Christian Bale        Bruce Wayne
+# Batman Begins          Michael Caine         Alfred
+# Batman Begins          Liam Neeson           Ra's Al Ghul
+# Batman Begins          Katie Holmes          Rachel Dawes
+# Batman Begins          Gary Oldman           Commissioner Gordon
+# The Dark Knight        Christian Bale        Bruce Wayne
+# The Dark Knight        Heath Ledger          Joker
+# The Dark Knight        Aaron Eckhart         Harvey Dent
+# The Dark Knight        Michael Caine         Alfred
+# The Dark Knight        Maggie Gyllenhaal     Rachel Dawes
+# The Dark Knight Rises  Christian Bale        Bruce Wayne
+# The Dark Knight Rises  Gary Oldman           Commissioner Gordon
+# The Dark Knight Rises  Tom Hardy             Bane
+# The Dark Knight Rises  Joseph Gordon-Levitt  John Blake
+# The Dark Knight Rises  Anne Hathaway         Selina Kyle
 
 
 
