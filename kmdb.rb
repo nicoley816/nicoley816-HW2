@@ -91,7 +91,30 @@ p new_studio
 
 new_movie = Movie.new
 new_movie ["title"] = "Batman Begins"
+new_movie ["year_released"] = 2005
+new_movie ["rated"] = "PG-13"
+new_movie ["studio_id"] = 1
+new_movie.save
+p new_movie
 
+new_movie = Movie.new
+new_movie ["title"] = "The Dark Knight"
+new_movie ["year_released"] = 2008
+new_movie ["rated"] = "PG-13"
+new_movie ["studio_id"] = 1
+new_movie.save
+p new_movie
+
+new_movie = Movie.new
+new_movie ["title"] = "The Dark Knight Rises"
+new_movie ["year_released"] = 2012
+new_movie ["rated"] = "PG-13"
+new_movie ["studio_id"] = 1
+new_movie.save
+p new_movie
+
+new_actor = Actor.new
+new_actor ["name"] = 
 
 
 # Insert data into the database that reflects the sample data shown above.
