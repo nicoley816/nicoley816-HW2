@@ -79,7 +79,6 @@ Studio.destroy_all
 Movie.destroy_all
 Actor.destroy_all
 Role.destroy_all
-
 # TODO!
 
 # Generate models and tables, according to the domain model.
@@ -99,7 +98,6 @@ new_movie ["year_released"] = 2005
 new_movie ["rated"] = "PG-13"
 new_movie ["studio_id"] = WB["id"]
 new_movie.save
-p new_movie
 
 new_movie = Movie.new
 new_movie ["title"] = "The Dark Knight"
@@ -107,7 +105,6 @@ new_movie ["year_released"] = 2008
 new_movie ["rated"] = "PG-13"
 new_movie ["studio_id"] = WB["id"]
 new_movie.save
-p new_movie
 
 new_movie = Movie.new
 new_movie ["title"] = "The Dark Knight Rises"
@@ -115,7 +112,6 @@ new_movie ["year_released"] = 2012
 new_movie ["rated"] = "PG-13"
 new_movie ["studio_id"] = WB["id"]
 new_movie.save
-p new_movie
 
 new_actor = Actor.new
 new_actor ["name"] = "Christian Bale"
@@ -150,8 +146,6 @@ new_actor.save
 new_actor = Actor.new
 new_actor ["name"] = "Anne Hathaway"
 new_actor.save
-p new_actor
-
 
 Batmanbegins = Movie.find_by("title" => "Batman Begins")
 Thedarkknight = Movie.find_by("title" => "The Dark Knight")
@@ -258,7 +252,6 @@ new_role ["movie_id"] = Thedarkknightrises["id"]
 new_role ["actor_id"] = AH["id"]
 new_role ["character_name"] = "Selina Kyle"
 new_role.save
-p new_role
 
 # Prints a header for the movies output
 puts "Movies"
@@ -267,6 +260,11 @@ puts ""
 
 # Query the movies data and loop through the results to display the movies output.
 # TODO!
+all_movies = Movie.all
+for movie in all_movies
+    studio = Studio.find_by({"id" => movie["studio_id"]})
+    puts "#{movie["title"]} #{movie["year_released"]}  #{movie["rated"]} #{studio["name"]}"
+  end
 
 # Prints a header for the cast output
 puts ""
@@ -276,3 +274,9 @@ puts ""
 
 # Query the cast data and loop through the results to display the cast output for each movie.
 # TODO!
+all_roles = Role.all
+for role in all_roles
+  movie = Movie.find_by({"id" => role["movie_id"]})
+  actor = Actor.find_by({"id" => role["actor_id"]})
+  puts "#{movie["title"]} #{actor["name"]} #{role["character_name"]}"
+end
